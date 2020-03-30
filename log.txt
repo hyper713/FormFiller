@@ -1,1 +1,5 @@
 [30-Mar-2020 (14:30:09)] [Total requested forms: 2] [Total submitted forms: 0] [Total time: 10sec]
+[30-Mar-2020 (14:34:17)] [Total requested forms: 10] [Total submitted forms: 0] [Total time: 11sec]
+[30-Mar-2020 (14:35:27)] [Total requested forms: 10] [Total submitted forms: 0] [Total time: 11sec]
+[30-Mar-2020 (14:37:09)] [Total requested forms: 10] [Total submitted forms: 0] [Total time: 11sec]
+[30-Mar-2020 (14:38:35)] [Total requested forms: 10] [Total submitted forms: 10] [Total time: 44sec]

@@ -84,12 +84,13 @@ if int(sys.argv[1])>0:
                         if check_exists("/html/body/div[1]/div[2]/div[1]/div/div[3]"):
                                 counter = counter+1
         end = time.time()
+        driver.quit()
+        
         f = open("log.txt", "a")
         line = "["+datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+"] [Total requested forms: "+str(sys.argv[1])+"] [Total submitted forms: "+str(counter)+"] [Total time: "+str(int(end-start))+"sec]\n"
         f.write(line)
         f.close()
 
-        driver.quit()
         print("\n")
         print("Submited forms ",counter)
         print("")
