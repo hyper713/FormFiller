@@ -2,6 +2,7 @@ from selenium import webdriver
 from random import randint
 import sys
 import time
+from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException,UnexpectedAlertPresentException  
 
 #Static VARs
@@ -82,11 +83,17 @@ if int(sys.argv[1])>0:
                         time.sleep(1)
                         if check_exists("/html/body/div[1]/div[2]/div[1]/div/div[3]"):
                                 counter = counter+1
+        end = time.time()
+        f = open("log.txt", "a")
+        line = "["+datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")+"] [Total submitted forms: "+str(counter)+"] [Total time: "+str(int(end-start))+"sec]\n"
+        f.write(line)
+        f.close()
+
         driver.quit()
         print("\n")
         print("Submited forms ",counter)
         print("")
-        print("Used time",int(time.time()-start),"sec")
+        print("Used time",int(end-start),"sec")
 else:
         print("Bad Argument")
 
