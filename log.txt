@@ -1,2 +1,1 @@
-[30-Mar-2020 (14:20:01.407934)] [Total submitted forms: 0] [Total time: 18sec]
-[30-Mar-2020 (14:20:26.060314)] [Total submitted forms: 1] [Total time: 16sec]
+[30-Mar-2020 (14:30:09)] [Total requested forms: 2] [Total submitted forms: 0] [Total time: 10sec]

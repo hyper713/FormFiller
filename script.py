@@ -85,7 +85,7 @@ if int(sys.argv[1])>0:
                                 counter = counter+1
         end = time.time()
         f = open("log.txt", "a")
-        line = "["+datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")+"] [Total submitted forms: "+str(counter)+"] [Total time: "+str(int(end-start))+"sec]\n"
+        line = "["+datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+"] [Total requested forms: "+str(sys.argv[1])+"] [Total submitted forms: "+str(counter)+"] [Total time: "+str(int(end-start))+"sec]\n"
         f.write(line)
         f.close()
 
