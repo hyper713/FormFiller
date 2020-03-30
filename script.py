@@ -54,9 +54,9 @@ def generate_level():
 
 if int(sys.argv[1])>0:
         counter =0
+        # create a new session
+        driver = webdriver.Chrome(executable_path=r'chromedriver.exe')
         for x in range(int(sys.argv[1])):
-                # create a new session
-                driver = webdriver.Chrome(executable_path=r'chromedriver.exe')
                 driver.get(url)
                 var=generate()
                 driver.find_element_by_xpath(email).send_keys(var[0]) #fill the email
@@ -66,7 +66,7 @@ if int(sys.argv[1])>0:
                 driver.find_element_by_xpath(phone).send_keys(generate_phone()) #fill tha phone
                 driver.find_element_by_xpath(submit).click() #submit the form
                 counter = counter+1
-                driver.quit()
+        driver.quit()
         print("\n")
         print("Submited forms ",counter)
 else:
