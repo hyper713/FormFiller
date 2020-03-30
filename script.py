@@ -2,6 +2,7 @@ from selenium import webdriver
 from random import randint
 import sys
 import time
+from selenium.common.exceptions import NoSuchElementException,UnexpectedAlertPresentException  
 
 #Static VARs
 first = ["Lahcen","Zineb","Mohammed","Yassine","Amine","Fatima-Ezzrhra","Said","Jaafar","Adam","Malak","Asmae","Adil","Anass","Hamid","Touria","Nihal","Hajar","Montassir","Leila","Soukaina","Fahd","Sakina","Ismail","Anouar","Omar","Aya","Amina","Sahar"]
@@ -51,6 +52,13 @@ def generate_game():
 def generate_level():
         return levels[randint(0, len(levels)-1)]
 
+def check_exists(xpath):
+    try:
+        driver.find_element_by_xpath(xpath)
+    except NoSuchElementException:
+        return False
+    return True
+
 
 
 if int(sys.argv[1])>0:
@@ -60,14 +68,20 @@ if int(sys.argv[1])>0:
         driver = webdriver.Chrome(executable_path=r'chromedriver.exe')
         for x in range(int(sys.argv[1])):
                 driver.get(url)
-                var=generate()
-                driver.find_element_by_xpath(email).send_keys(var[0]) #fill the email
-                driver.find_element_by_xpath(generate_game()).click() #fill the game
-                driver.find_element_by_xpath(name).send_keys(var[1]) #fill tha name
-                driver.find_element_by_xpath(generate_level()).click() #fill the level
-                driver.find_element_by_xpath(phone).send_keys(generate_phone()) #fill tha phone
-                driver.find_element_by_xpath(submit).click() #submit the form
-                counter = counter+1
+                try:
+                        var=generate()
+                        driver.find_element_by_xpath(email).send_keys(var[0]) #fill the email
+                        driver.find_element_by_xpath(generate_game()).click() #fill the game
+                        driver.find_element_by_xpath(name).send_keys(var[1]) #fill tha name
+                        driver.find_element_by_xpath(generate_level()).click() #fill the level
+                        driver.find_element_by_xpath(phone).send_keys(generate_phone()) #fill tha phone
+                        driver.find_element_by_xpath(submit).click() #submit the form
+                except UnexpectedAlertPresentException:
+                        continue
+                else:
+                        time.sleep(1)
+                        if check_exists("/html/body/div[1]/div[2]/div[1]/div/div[3]"):
+                                counter = counter+1
         driver.quit()
         print("\n")
         print("Submited forms ",counter)
