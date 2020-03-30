@@ -1,6 +1,7 @@
 from selenium import webdriver
 from random import randint
 import sys
+import time
 
 #Static VARs
 first = ["Lahcen","Zineb","Mohammed","Yassine","Amine","Fatima-Ezzrhra","Said","Jaafar","Adam","Malak","Asmae","Adil","Anass","Hamid","Touria","Nihal","Hajar","Montassir","Leila","Soukaina","Fahd","Sakina","Ismail","Anouar","Omar","Aya","Amina","Sahar"]
@@ -54,6 +55,7 @@ def generate_level():
 
 if int(sys.argv[1])>0:
         counter =0
+        start = time.time()
         # create a new session
         driver = webdriver.Chrome(executable_path=r'chromedriver.exe')
         for x in range(int(sys.argv[1])):
@@ -69,6 +71,8 @@ if int(sys.argv[1])>0:
         driver.quit()
         print("\n")
         print("Submited forms ",counter)
+        print("")
+        print("Used time",int(time.time()-start),"sec")
 else:
         print("Bad Argument")
 
