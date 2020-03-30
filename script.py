@@ -36,7 +36,7 @@ phone="/html/body/div/div[2]/form/div/div/div[2]/div[7]/div/div[2]/div/div[1]/di
 submit="/html/body/div/div[2]/form/div/div/div[3]/div[1]/div/div/span"
 
 #launch url
-url = "https://forms.gle/wsqnCVWQ5v1Nd4Np6"
+url = "Your form"
 
 #Functions
 def generate():
